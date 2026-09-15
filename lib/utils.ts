@@ -1,0 +1,17 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+/** Generate a URL-safe slug from a restaurant name. */
+export function generateSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/['']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60)
+}
